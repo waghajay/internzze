@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         try {
-            const response = await fetch("https://internzze.com/api/register", {
+            const response = await fetch("http://localhost:3000/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

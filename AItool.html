@@ -18,7 +18,7 @@
             <img src="./Images/AI_tool.jpg" alt="">
             <h2>Use Of AI tools</h2>
             <div id="priceHolder">
-                <h3 id="course-price">Course price: <span id="price">499</span>/-</h3>
+                <h3 id="course-price">Course price: <span id="price">1</span>/-</h3>
                 <select id="contentDropdown">
                     <option value="">See Content</option>
                     <option value="Hands-on Experience">Week 1: Fundamentals & AI-powered Content Creation
@@ -104,7 +104,7 @@
         }
 
         // Create Order
-        const response = await fetch("https://internzze.com/api/create-order", {
+        const response = await fetch("http://localhost:3000/create-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ amount: price * 100 })
@@ -116,7 +116,7 @@
 
         // Open Razorpay Checkout
         const options = {
-            key: "rzp_live_1TQ9pX4PUZL2ls",  // Replace with your Razorpay key
+            key: "rzp_live_rly0BJKgu8Z5zG",  // Replace with your Razorpay key
             amount: data.order.amount,
             currency: data.order.currency,
             name: "AI Course",
@@ -135,7 +135,7 @@
                 contact: document.getElementById("number").value
             },
             handler: async function (response) {
-                const verifyResponse = await fetch("https://internzze.com/api/verify-payment", {
+                const verifyResponse = await fetch("http://localhost:3000/verify-payment", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(response),

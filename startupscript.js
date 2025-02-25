@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const priceElement = document.getElementById("price");
 
         try {
-            const response = await fetch("https://internzze.com/api/StartupRegister", {
+            const response = await fetch("http://localhost:3000/StartupRegister", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
