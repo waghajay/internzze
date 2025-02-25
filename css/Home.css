@@ -254,6 +254,10 @@ body{
     margin-bottom: 5px;
 }
 
+.innerLogoAndInfo a{
+    text-decoration: none;
+    color: black;
+}
 
 
 #someAddInfo{
