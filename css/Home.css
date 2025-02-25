@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ropa+Sans:ital@0;1&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 body{
-    background-color: #828282;
+    background-color: #d7d0d0;
 }
 
 #navbar{
@@ -16,6 +17,9 @@ body{
     padding: 10px 30px;
     flex-direction: column;
     margin-bottom: 30px;
+}
+.animate__flash{
+    font-family: "Roboto", serif;
 }
 #navbar img{
     width: 150px;
@@ -48,6 +52,7 @@ body{
     border-top-right-radius: 20px;
 }
 #CourseCardsContainer h1{
+    font-family: "Roboto", serif;
     text-align: center;
     font-size: 40px;
     color: black;
@@ -89,6 +94,7 @@ body{
     border-top-right-radius: 20px;
 }
 .CardContainer h2{
+    font-family: "Ropa Sans", serif;
     text-align: center;
     color: #008979;
     font-size: 30px;
@@ -96,9 +102,10 @@ body{
     margin-bottom: 10px;
 }
 .CardContainer ul{
-    font-size: 20px;
+    font-size: 15px;
 }
 .CardContainer ul li{
+    font-family: "Roboto Mono", serif;
     padding: 5px;
     color: #008979;
 }
@@ -107,17 +114,17 @@ body{
     height: auto;
     margin-top: 7px;
     padding: 10px 25px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     background-color: black;
-    color: #008979;
+    color: #80e6da;
     outline: none;
     border: 2px solid #008979;
     border-radius: 10px;
     margin-bottom: 20px;
     /* box-shadow: 1px 1px 5px #828282 , 1px 1px 5px #828282 ,
     1px 1px 5px #828282 , 1px 1px 5px #828282, 1px 1px 5px #828282; */
-    box-shadow: 1px 1px 5px #828282 , 1px 1px 5px #828282;
+    /* box-shadow: 1px 1px 5px #828282 , 1px 1px 5px #828282; */
     transition: .5s ease all;
     text-decoration: none;
     text-align: center;
@@ -150,6 +157,7 @@ body{
 
 }
 #Certificates #completionCertificate h2{
+    font-family: "Roboto", serif;
     font-size: 30px;
     margin-bottom: 20px;
     text-align: center;
@@ -163,7 +171,8 @@ body{
   box-shadow: 2px 5px 16px #828282;
 }
 #Certificates #completionCertificate p{
-    width: 70%;
+    font-family: "Roboto", serif;
+    width: 90%;
     height: auto;
     margin-top: 20px;
     font-size: 14px;
@@ -178,12 +187,14 @@ body{
     flex-direction: column;
 }
 #offerLetter h2{
+    font-family: "Roboto", serif;
     font-size: 30px;
     margin-bottom: 20px;
     text-align: center;
 }
 #offerLetter p{
-    width: 70%;
+    font-family: "Roboto", serif;
+    width: 90%;
     height: auto;
     margin-top: 20px;
     font-size: 14px;
@@ -222,6 +233,7 @@ body{
 }
 
 #ContactInfo{
+    font-family: "Roboto", serif;
     width: auto;
     height: auto;
     display: grid;
@@ -242,6 +254,8 @@ body{
     margin-bottom: 5px;
 }
 
+
+
 #someAddInfo{
     width: 40%;
     height: auto;
@@ -249,6 +263,7 @@ body{
     place-items: center;
 }
 #someAddInfo h1{
+    font-family: "Roboto", serif;
     font-size: 28px;
     text-align: center;
     margin-bottom: 10px;
@@ -274,15 +289,26 @@ footer{
     width: 30%;
     height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 3px;
 }
+
+.footerInfoContainer-flex{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;
+}
+
 #footerInfoContainer p{
+    font-family: "Roboto", serif;
     font-size: 20px;
     font-weight: bold;
     /* background-image: linear-gradient(black, #008979); */
-    background-color: white;
+    background-color: black;
     color: transparent;
     background-clip: text;
 }
