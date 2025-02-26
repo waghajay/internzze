@@ -239,16 +239,38 @@ document.getElementById("pay-button").addEventListener("click", async function (
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(response),
                     });
+            
                     const verifyData = await verifyResponse.json();
                     console.log("Verification result:", verifyData);
+            
                     if (verifyData.success) {
-                        alert("Payment Successful!");
-                        window.location.href = "StartupSocialMedia.html";
+                        Swal.fire({
+                            title: "Payment Successful!",
+                            text: "Thank you for your purchase. You will be redirected soon...",
+                            icon: "success",
+                            timer: 5000, // 5 seconds
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        });
+            
+                        // Redirect after 5 seconds
+                        setTimeout(() => {
+                            window.location.href = "StartupSocialMedia.html";
+                        }, 5000);
                     } else {
-                        alert("Payment Verification Failed!");
+                        Swal.fire({
+                            title: "Payment Verification Failed!",
+                            text: "There was an issue verifying your payment. Please contact support.",
+                            icon: "error"
+                        });
                     }
                 } catch (error) {
                     console.error("Verification error:", error);
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Something went wrong. Please try again.",
+                        icon: "error"
+                    });
                 }
             },
             modal: {

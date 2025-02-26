@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ropa+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 *{
     padding: 0;
     margin: 0;
+    font-family: "EB Garamond", serif;
     box-sizing: border-box;
 }
 body{
@@ -110,6 +112,7 @@ body{
     color: #008979;
 }
 .CardContainer a{
+    font-family: "Roboto", serif;
     width: 40%;
     height: auto;
     margin-top: 7px;
@@ -280,6 +283,7 @@ body{
 
 
 footer{
+    font-family: 'Times New Roman', Times, serif !important;
     width: 100%;
     height: auto;
     padding: 10px 20px;
@@ -415,5 +419,9 @@ footer{
     }
     #footerInfoContainer img{
         width: 40px;
+    }
+    .CardContainer a{
+        margin-top: 15px;
+        width: 60%;
     }
 }
