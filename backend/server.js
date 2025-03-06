@@ -27,7 +27,7 @@ console.log("Supabase URL:", process.env.SUPABASE_URL);
 console.log("Razorpay Key ID:", process.env.RAZORPAY_KEY_ID);
 
 
-const validReferralCodes = ["REF100", "SAVE99", "DISCOUNT50", "OFFER2024" , "DIKE9284"];
+const validReferralCodes = ["REF100", "SAVE99", "DISCOUNT50", "OFFER2024" , "DIKE9284","ANSH100","KARTIK100","MANISHA100","NIRAJ100","VARAD100","PRANAV100","RUSHIKESH100","SHIVAM100"];
 
 app.post("/register", async (req, res) => {
     const { name, email, number, college, linkedin, github, program, description, referral } = req.body;
