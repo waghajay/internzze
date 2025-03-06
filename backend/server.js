@@ -41,9 +41,9 @@ app.post("/register", async (req, res) => {
 
         if (referral && validReferralCodes.includes(referral)) {
             if (price === 499) {
-                price = 99;
+                price = 149;
             } else if (price === 399) {
-                price = 49;
+                price = 99;
             }
         }
 
@@ -127,7 +127,7 @@ app.post("/StartupRegister", async (req, res) => {
 
         if (referral && validReferralCodes.includes(referral)) {
             if (price === 399) {
-                price = 49;
+                price = 149;
             } else if (price === 499) {
                 price = 99;
             }
