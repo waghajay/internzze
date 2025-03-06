@@ -9,6 +9,7 @@ const crypto = require("crypto");
 const app = express();
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }))
 app.use(cors());
 
 const supabaseURL = process.env.SUPABASE_URL;
@@ -26,7 +27,7 @@ console.log("Supabase URL:", process.env.SUPABASE_URL);
 console.log("Razorpay Key ID:", process.env.RAZORPAY_KEY_ID);
 
 
-const validReferralCodes = ["REF100", "SAVE99", "DISCOUNT50", "OFFER2024" , "DIKE9284"];
+const validReferralCodes = ["REF100", "SAVE99", "DISCOUNT50", "OFFER2024" , "DIKE9284","ANSH100","KARTIK100","MANISHA100","NIRAJ100","VARAD100","PRANAV100","RUSHIKESH100","SHIVAM100"];
 
 app.post("/register", async (req, res) => {
     const { name, email, number, college, linkedin, github, program, description, referral } = req.body;
@@ -40,9 +41,9 @@ app.post("/register", async (req, res) => {
 
         if (referral && validReferralCodes.includes(referral)) {
             if (price === 499) {
-                price = 99;
+                price = 149;
             } else if (price === 399) {
-                price = 49;
+                price = 99;
             }
         }
 
@@ -126,7 +127,7 @@ app.post("/StartupRegister", async (req, res) => {
 
         if (referral && validReferralCodes.includes(referral)) {
             if (price === 399) {
-                price = 49;
+                price = 149;
             } else if (price === 499) {
                 price = 99;
             }
@@ -180,6 +181,7 @@ app.post("/create-order", async (req, res) => {
         };
 
         const order = await razorpay.orders.create(options);
+        console.log("order created : ",order)
         res.json({ success: true, order });
     } catch (error) {
         res.status(500).json({ success: false, message: "Order creation failed", error });
@@ -188,7 +190,10 @@ app.post("/create-order", async (req, res) => {
 
 // Verify Payment
 app.post("/verify-payment", (req, res) => {
+    console.log("🔹 Received Payment Verification Request:", req.body);
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+
+    console.log("✅ Payment ID (for capture):", razorpay_payment_id);  //
 
     const generated_signature = crypto.createHmac("sha256", process.env.RAZORPAY_SECRET_KEY)
         .update(razorpay_order_id + "|" + razorpay_payment_id)
@@ -200,6 +205,58 @@ app.post("/verify-payment", (req, res) => {
         res.status(400).json({ success: false, message: "Payment verification failed" });
     }
 });
+
+
+
+app.get("/payment-callback", (req, res) => {
+    console.log("Callback received:", req.query);
+    res.redirect("http://localhost:your_frontend_port/success"); // Redirect back to your frontend
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// app.post("/capture-payment", async (req, res) => {
+//     try {
+//         const { payment_id, amount } = req.body;
+
+//         console.log("🔹 Capturing Payment ID:", payment_id, "for amount:", amount);
+
+//         if (!payment_id || !amount) {
+//             return res.status(400).json({ success: false, message: "Missing payment ID or amount" });
+//         }
+
+//         // 🔹 Capture the payment
+//         const captureResponse = await razorpay.payments.capture(payment_id, amount, "INR");
+
+//         console.log("✅ Capture Response:", captureResponse);
+
+//         res.json({ success: true, message: "Payment captured successfully", captureResponse });
+//     } catch (error) {
+//         console.error("⚠️ Payment Capture Error:", error);
+//         res.status(500).json({ success: false, message: "Payment capture failed", error });
+//     }
+// });
+
+
+
+
+
+
 
 
 
